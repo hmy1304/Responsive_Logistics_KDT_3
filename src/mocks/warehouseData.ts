@@ -5,13 +5,6 @@ import sk1i from "../../public/images/sk1i.svg";
 import vector from "../../public/images/vector.svg";
 import vector4 from "../../public/images/vector-4.svg";
 
-export const tabs = [
-  { id: "realtime", label: "실시간 현황" },
-  { id: "expiry", label: "유통기한" },
-  { id: "stock", label: "재고추이" },
-  { id: "apply", label: "신청하러 가기" },
-];
-
 export const summaryCards = [
   {
     title: "전체 관리 상품",

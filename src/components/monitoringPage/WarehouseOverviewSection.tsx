@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import PageTabs from "../common/PageTabs";
 import {
-  tabs,
   summaryCards,
   temperatureBars,
   featureCards,
@@ -101,20 +99,21 @@ export const WarehouseOverviewSection = (): JSX.Element => {
 
   return (
     <section
-      className="flex flex-col items-center justify-center
-                 p-4 sm:p-5 md:p-6 lg:p-8 shadow-2xl bg-white"
+      id="realtime"
+      className="flex flex-col items-center justify-center shadow-2xl bg-white"
       aria-labelledby="warehouse-overview-heading"
     >
-      <PageTabs tabs={tabs} />
 
       <div
         id="warehouse-overview-panel"
         role="tabpanel"
         aria-labelledby="warehouse-overview-heading"
         className="
-        flex flex-col mx-auto max-w-[1300px] lg:flex-row items-center justify-center
-                   gap-4 sm:gap-6 md:gap-8 lg:gap-12
-                   w-full px-1 sm:px-2 md:px-4 lg:px-6"
+        flex flex-col lg:flex-row items-center justify-center mx-auto
+        w-full max-w-[1300px]
+        gap-4 sm:gap-6 md:gap-8 lg:gap-12
+        px-4 sm:px-6 md:px-8 lg:px-10
+        py-8 sm:py-12 md:py-14 lg:py-16"
       >
         <HoverTilt className="w-full lg:w-[560px] rounded-2xl">
           <article
@@ -251,7 +250,13 @@ export const WarehouseOverviewSection = (): JSX.Element => {
               <button
                 type="button"
                 onClick={() => navigate("/support")}
-                className="group inline-flex items-center justify-center w-full md:w-full gap-2 rounded-xl border-[1.5px] border-blue-600 bg-white px-9 py-3.5 text-[16px] font-semibold text-blue-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/25"
+                className="group inline-flex items-center justify-center
+                    w-full lg:w-auto
+                    gap-2 rounded-xl border-[1.5px] border-blue-600 bg-white
+                    px-9 py-3.5
+                    text-base md:text-[16px] font-semibold text-blue-600
+                    transition-all duration-300
+                    hover:-translate-y-0.5 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/25"
               >
                 대시보드 전체 보기
               </button>
