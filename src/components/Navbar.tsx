@@ -79,12 +79,12 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="flex items-center gap-3">
-          <Link
-            to="/service"
+          <a
+            href="https://responsive-logistics-kdt-3-demo.vercel.app/"
             className="hidden rounded-[10px] border border-slate-200 px-6 py-2.5 text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 sm:block"
           >
             데모 보기
-          </Link>
+          </a>
           <Link
             to="/support"
             className="rounded-[10px] bg-gradient-to-br from-sky-500 to-sky-700 px-7 py-2.5 text-[15px] font-semibold text-white shadow-sm shadow-sky-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/20 hover:brightness-110"
