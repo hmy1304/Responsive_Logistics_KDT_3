@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { featureCards, alertItems} from "../../mocks/shipment"
+import { featureCards, alertItems } from "../../mocks/shipment";
 import vector19 from "../../../public/images/vector-19.svg";
 import { useInView } from "../../hooks/useInView";
 import { useCountUp } from "../../hooks/useCountUp";
@@ -61,48 +61,51 @@ export const ShipmentCountdownSection = (): JSX.Element => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-3 self-stretch">
-          <div className="flex flex-col sm:flex-row gap-3 self-stretch">
-            {featureCards.map((card, idx) => (
-              <article
-                key={card.title}
-                className="flex flex-1 items-center gap-3.5 rounded-xl border border-slate-200 bg-white p-4 shadow
-                   transition-all duration-700 ease-out
-                   opacity-0 translate-y-4
-                   data-[inview=true]:opacity-100 data-[inview=true]:translate-y-0"
-                style={{ transitionDelay: `${idx * 150}ms` }}
-                data-inview={inView}
+        <div className="flex flex-col sm:flex-row gap-3 self-stretch">
+          {featureCards.map((card) => (
+            <article
+              key={card.title}
+              className="flex items-center gap-2.5 sm:gap-3.5
+                           p-2 sm:p-3 md:p-2 lg:p-3
+                           flex-1
+                           bg-white rounded-xl border border-slate-200 shadow min-w-0
+                           transition-all duration-300 hover:shadow-lg
+                           animate-in fade-in scale-in"
+            >
+              <div
+                className={`${card.iconBgColor} flex w-10 h-10 items-center justify-center rounded-[10px] flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-md flex-shrink-0`}
               >
-                <div
-                  className={`flex items-center justify-center rounded-lg ${card.iconBgColor} p-2`}
-                >
-                  <img
-                    src={card.iconSrc}
-                    alt={card.title}
-                    className="w-auto h-auto max-w-[28px] max-h-[28px] object-contain"
-                  />
-                </div>
-                <div className="flex flex-col gap-[3px]">
-                  <h3 className="text-sm font-bold text-sky-900">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs text-slate-500">{card.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+                <img src={card.iconSrc} alt={card.title} className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col min-w-0">
+                <span className="font-bold text-sky-900 text-sm sm:text-base">
+                  {card.title}
+                </span>
+                <p className="text-slate-500 text-xs sm:text-sm">
+                  {card.description}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 
       <aside
-        className="flex w-full md:w-full lg:w-[500px] flex-col rounded-3xl bg-white p-6 shadow
-                   transition-all duration-700 ease-out
-                   opacity-0 translate-x-6
-                   data-[inview=true]:opacity-100 data-[inview=true]:translate-x-0"
+        className="flex w-full md:w-[600px] flex-col rounded-3xl bg-white p-6 shadow
+             transition-all duration-700 ease-out
+             opacity-0 translate-x-6
+             data-[inview=true]:opacity-100 data-[inview=true]:translate-x-0"
         data-inview={inView}
       >
-        <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e] p-6 sm:p-7">
-          <div className="flex items-center justify-between">
+        <div
+          className="flex w-full flex-col gap-4 
+                  px-1 sm:px-2 md:px-3 lg:px-0 
+                  rounded-2xl 
+                  bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e] 
+                  p-6 sm:p-7"
+        >
+          {/* 헤더 */}
+          <div className="flex items-center justify-center">
             <h3 className="text-sm font-semibold text-sky-300">
               유통기한 임박 알림
             </h3>
@@ -114,14 +117,15 @@ export const ShipmentCountdownSection = (): JSX.Element => {
             </div>
           </div>
 
+          {/* 알림 리스트 */}
           <div className="flex flex-col gap-3">
             {alertItems.map((item, idx) => (
               <div
                 key={`${item.name}-${item.day}`}
                 className={`flex min-h-[60px] items-center justify-between rounded-[12px] border px-6 py-2 ${item.rowBgClass} ${item.rowBorderClass}
-                            transition-all duration-700 ease-out
-                            opacity-0 translate-y-4
-                            data-[inview=true]:opacity-100 data-[inview=true]:translate-y-0`}
+                      transition-all duration-700 ease-out
+                      opacity-0 translate-y-4
+                      data-[inview=true]:opacity-100 data-[inview=true]:translate-y-0`}
                 style={{ transitionDelay: `${idx * 120}ms` }}
                 data-inview={inView}
               >
@@ -161,10 +165,12 @@ export const ShipmentCountdownSection = (): JSX.Element => {
             ))}
           </div>
 
+          {/* 버튼 */}
           <button
             type="button"
             aria-label="전체 127건 알림 보기"
-            className="flex items-center justify-center gap-[6px] hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 mt-3"
+            className="flex items-center justify-center gap-[6px] mt-3
+                 hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
           >
             <span className="text-[14px] font-medium text-amber-600">
               전체 127건 알림 보기

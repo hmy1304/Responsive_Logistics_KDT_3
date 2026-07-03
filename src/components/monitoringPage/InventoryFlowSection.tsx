@@ -1,4 +1,4 @@
-import { statCards, legendItems, featureCards } from "../../mocks/Inventory";
+import { statCards, legendItems, featureCards } from "../../mocks/inventory";
 import vector26 from "../../../public/images/vector-26.svg";
 import vector27 from "../../../public/images/vector-27.svg";
 import vector28 from "../../../public/images/vector-28.svg";
@@ -8,7 +8,7 @@ export const InventoryFlowSection = (): JSX.Element => {
   return (
     <section
       id="stock"
-      className="flex flex-col items-center justify-center shadow-2xl bg-white"
+      className="flex flex-col items-center justify-between shadow-2xl bg-white"
       aria-labelledby="inventory-flow-section-heading"
     >
       <div
@@ -17,12 +17,12 @@ export const InventoryFlowSection = (): JSX.Element => {
         aria-labelledby="warehouse-overview-heading"
         className="
         flex flex-col lg:flex-row items-center justify-center mx-auto
-        w-full max-w-[1300px]
-        gap-4 sm:gap-6 md:gap-8 lg:gap-12
+        w-full lg:w-[1400px]
+        gap-15
         px-4 sm:px-6 md:px-8 lg:px-10
         py-8 sm:py-12 md:py-14 lg:py-16"
       >
-        <div className="flex flex-col w-full lg:w-[560px] p-6 bg-white rounded-3xl shadow">
+        <div className="flex flex-col w-full lg:w-[600px] p-6 bg-white rounded-3xl shadow">
           <div className="flex flex-col gap-4 p-7 rounded-2xl bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e]">
             <div className="flex items-center justify-between">
               <h2 className="text-sky-300 font-semibold text-sm">재고 현황</h2>
@@ -141,27 +141,29 @@ export const InventoryFlowSection = (): JSX.Element => {
             </button>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 self-stretch">
             {featureCards.map((card) => (
               <article
                 key={card.title}
                 className="flex items-center gap-2.5 sm:gap-3.5
-              p-2 sm:p-3 md:p-2 lg:p-4
-              flex-1
-              bg-white rounded-xl border border-slate-200 shadow min-w-0
-              transition-all duration-300 hover:shadow-lg
-              animate-in fade-in scale-in duration-500"
+                           p-2 sm:p-3 md:p-2 lg:p-3
+                           flex-1 min-w-[200px]
+                           bg-white rounded-xl border border-slate-200 shadow
+                           transition-all duration-300 hover:shadow-lg
+                           animate-in fade-in scale-in"
               >
                 <div
-                  className={`${card.iconWrapperClass} ${card.iconBgColor} p-2 sm:p-3`}
+                  className={`${card.iconBgColor} flex items-center justify-center 
+                              w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 
+                              rounded-md flex-shrink-0`}
                 >
                   <img
                     src={card.icon}
                     alt={card.title}
-                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    className="w-5 h-5"
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="font-bold text-sky-900 text-sm sm:text-base">
                     {card.title}
                   </span>

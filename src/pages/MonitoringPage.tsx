@@ -2,7 +2,7 @@ import HeroBannerSection from '../components/monitoringPage/HeroBannerSection'
 import { WarehouseOverviewSection } from "../components/monitoringPage/WarehouseOverviewSection"
 import { ShipmentCountdownSection } from "../components/monitoringPage/ShipmentCountdownSection"
 import { InventoryFlowSection } from '../components/monitoringPage/InventoryFlowSection';
-// import { MonitoringCTASection } from "../components/monitoringPage/MonitoringCTASection"
+import { MonitoringCTASection } from "../components/monitoringPage/MonitoringCTASection"
 import PageTabs from '../components/common/PageTabs';
 
 export const tabs = [
@@ -22,7 +22,7 @@ export default function MonitoringPage() {
         <WarehouseOverviewSection />
         <ShipmentCountdownSection />
         <InventoryFlowSection />
-        {/* <MonitoringCTASection /> */}
+        <MonitoringCTASection />
     </>
   )
 }
