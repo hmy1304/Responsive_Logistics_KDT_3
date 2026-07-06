@@ -187,7 +187,7 @@ export default function ArchitecturePage() {
 
       <section id="system" className="scroll-mt-32 px-5 sm:px-6 pb-16 pt-8">
         <div className="mx-auto grid max-w-6xl gap-10 lg:gap-16 rounded-[28px] border border-slate-200 bg-white px-5 sm:px-12 py-8 sm:py-14 shadow-[0_24px_70px_rgba(15,23,42,0.08)] lg:grid-cols-[0.88fr_1.5fr] lg:items-center">
-           <Reveal variant="zoom" className="rounded-3xl bg-gradient-to-br from-slate-950 via-sky-950 to-slate-900 p-5 sm:p-7 text-white shadow-2xl shadow-slate-300/60">
+           <Reveal variant="zoom" className="min-w-0 rounded-3xl bg-gradient-to-br from-slate-950 via-sky-950 to-slate-900 p-5 sm:p-7 text-white shadow-2xl shadow-slate-300/60">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="text-lg font-bold text-sky-100">
                 시스템 아키텍처
@@ -225,7 +225,7 @@ export default function ArchitecturePage() {
               ].map(([title, badge, items, theme]) => (
                 <div
                   key={title as string}
-                  className={`w-[85%] sm:w-auto shrink-0 snap-center sm:mb-4 rounded-2xl border p-4 ${theme as string}`}
+                  className={`w-[260px] sm:w-auto shrink-0 snap-center sm:mb-4 rounded-2xl border p-4 ${theme as string}`}
                 >
                   <div className="mb-3 flex items-center justify-between text-sm font-bold">
                     <span>{title}</span>
@@ -248,7 +248,7 @@ export default function ArchitecturePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal delay={120} className="min-w-0">
             <span className="inline-flex rounded-full bg-sky-100 px-5 py-2 text-sm font-extrabold text-sky-700">
               시스템 구조
             </span>
@@ -304,7 +304,7 @@ export default function ArchitecturePage() {
               ].map(([title, desc, Icon, color]) => (
                 <div
                   key={title as string}
-                  className="w-[85%] sm:w-auto shrink-0 snap-center rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"
+                  className="w-[260px] sm:w-auto shrink-0 snap-center rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"
                 >
                   <span
                     className={`grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-2xl ${color as string}`}
