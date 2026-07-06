@@ -13,6 +13,13 @@ async function request<T>(url: string, init?: RequestInit): Promise<T> {
     headers: { 'Content-Type': 'application/json' },
     ...init,
   })
+
+  // Vercel SPA 라우팅 예외 처리 (MSW가 잠들어있을 때 HTML이 응답으로 오는 현상 방지)
+  const contentType = res.headers.get('content-type')
+  if (contentType && contentType.includes('text/html')) {
+    throw new Error('API가 JSON 대신 HTML을 반환했습니다. (MSW Cold Start)')
+  }
+
   if (!res.ok) {
     const body = (await res.json().catch(() => null)) as { message?: string } | null
     throw new Error(body?.message ?? `요청에 실패했습니다 (${res.status})`)
