@@ -491,30 +491,30 @@ export default function ArchitecturePage() {
             <p className="mt-5 text-lg text-slate-500">
               데이터 기반의 의사결정을 위한 통합 대시보드
             </p>
-            <div className="mt-8 space-y-3">
+            <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:grid-cols-1 sm:space-y-3">
               {dashboardMenus.map((menu, index) => {
                 const Icon = menu.icon;
                 return (
                   <div
                     key={menu.title}
-                    className={`flex items-center justify-between rounded-2xl border p-5 ${index === 0 ? "border-sky-100 bg-sky-100" : "border-slate-200 bg-slate-50"}`}
+                    className={`flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-2xl border p-4 sm:p-5 ${index === 0 ? "border-sky-100 bg-sky-100" : "border-slate-200 bg-slate-50"}`}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full">
                       <span
-                        className={`grid h-11 w-11 place-items-center rounded-xl ${menu.color}`}
+                        className={`grid h-10 w-10 sm:h-11 sm:w-11 shrink-0 place-items-center rounded-xl ${menu.color}`}
                       >
                         <Icon className="h-5 w-5" />
                       </span>
                       <div>
-                        <strong className="text-sm font-extrabold text-sky-950">
+                        <strong className="text-[13px] sm:text-sm font-extrabold text-sky-950">
                           {menu.title}
                         </strong>
-                        <p className="mt-1 text-xs text-slate-500">
+                        <p className="mt-1 text-[11px] sm:text-xs text-slate-500 hidden sm:block">
                           {menu.desc}
                         </p>
                       </div>
                     </div>
-                    <span className="text-slate-400">›</span>
+                    <span className="hidden sm:block text-slate-400">›</span>
                   </div>
                 );
               })}
@@ -562,7 +562,7 @@ export default function ArchitecturePage() {
                 </div>
                 <svg
                   viewBox="0 0 760 250"
-                  className="h-64 w-full"
+                  className="h-40 sm:h-64 w-full"
                   aria-label="주문량 추이 그래프"
                 >
                   <defs>
@@ -644,16 +644,18 @@ export default function ArchitecturePage() {
                   )}
                 </svg>
               </div>
-              <div className="rounded-2xl bg-white/10 p-6 text-center">
-                <h4 className="text-sm font-bold">지역별 배송 현황</h4>
-                <div className="mx-auto mt-6 grid h-28 w-28 place-items-center rounded-full bg-[conic-gradient(#0ea5e9_0_35%,#22c55e_35%_63%,#f59e0b_63%_78%,#8b5cf6_78%_87%,#475569_87%_100%)]">
-                  <div className="grid h-16 w-16 place-items-center rounded-full bg-sky-950 text-sm font-bold">
-                    서울
-                    <br />
-                    <span className="text-xs text-slate-300">35.2%</span>
+              <div className="rounded-2xl bg-white/10 p-5 sm:p-6 flex flex-row sm:flex-col items-center sm:items-stretch justify-between sm:justify-start text-left sm:text-center">
+                <div className="flex flex-col items-center sm:block">
+                  <h4 className="text-[13px] sm:text-sm font-bold text-center">지역별 배송 현황</h4>
+                  <div className="mx-auto mt-4 sm:mt-6 grid h-24 w-24 sm:h-28 sm:w-28 place-items-center rounded-full bg-[conic-gradient(#0ea5e9_0_35%,#22c55e_35%_63%,#f59e0b_63%_78%,#8b5cf6_78%_87%,#475569_87%_100%)]">
+                    <div className="grid h-14 w-14 sm:h-16 sm:w-16 place-items-center rounded-full bg-sky-950 text-xs sm:text-sm font-bold">
+                      서울
+                      <br />
+                      <span className="text-[10px] sm:text-xs text-slate-300">35.2%</span>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-5 space-y-2 text-xs">
+                <div className="mt-0 sm:mt-5 pl-5 sm:pl-0 flex-1 sm:flex-none space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs">
                   {[
                     "서울 35.2%",
                     "경기 28.1%",
@@ -666,7 +668,7 @@ export default function ArchitecturePage() {
                       className="flex justify-between text-slate-200"
                     >
                       <span>{item.split(" ")[0]}</span>
-                      <b>{item.split(" ")[1]}</b>
+                      <b className="ml-2">{item.split(" ")[1]}</b>
                     </p>
                   ))}
                 </div>
