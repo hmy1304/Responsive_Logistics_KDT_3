@@ -159,6 +159,60 @@ const performance = [
 
 // Removed scrollTo, using PageTabs instead
 
+const systemLayers = [
+  [
+    "Client Layer",
+    "React / Next.js",
+    ["Web Dashboard", "Mobile App"],
+    "text-sky-300 border-sky-400/20 bg-sky-400/10",
+  ],
+  [
+    "API Gateway",
+    "Kong / Nginx",
+    ["Load Balancer", "Rate Limiting"],
+    "text-emerald-300 border-emerald-400/20 bg-emerald-400/10",
+  ],
+  [
+    "Microservices",
+    "Spring Boot / Node",
+    ["재고 서비스", "온도 서비스", "알림 서비스"],
+    "text-violet-300 border-violet-400/20 bg-violet-400/10",
+  ],
+  [
+    "Data Layer",
+    "PostgreSQL / Redis",
+    ["Primary DB", "Cache / Queue"],
+    "text-yellow-300 border-yellow-400/20 bg-yellow-400/10",
+  ],
+];
+
+const systemFeatures = [
+  [
+    "레이어드 아키텍처",
+    "Client → API → Service → DB 명확한 분리",
+    Layers,
+    "text-sky-500 bg-sky-50",
+  ],
+  [
+    "MSA 독립 배포",
+    "서비스별 독립 배포 및 장애 격리",
+    Activity,
+    "text-emerald-500 bg-emerald-50",
+  ],
+  [
+    "무중단 운영",
+    "롤링 배포·블루그린 전략 적용",
+    ShieldCheck,
+    "text-violet-500 bg-violet-50",
+  ],
+  [
+    "Auto Scaling",
+    "트래픽 급증 시 자동 스케일아웃",
+    TrendingUp,
+    "text-amber-500 bg-amber-50",
+  ],
+];
+
 export default function ArchitecturePage() {
   return (
     <div className="bg-white">
@@ -196,44 +250,49 @@ export default function ArchitecturePage() {
                 ● LIVE
               </span>
             </div>
-            <div className="flex sm:block overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-0 pb-2 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
-              {[
-                [
-                  "Client Layer",
-                  "React / Next.js",
-                  ["Web Dashboard", "Mobile App"],
-                  "text-sky-300 border-sky-400/20 bg-sky-400/10",
-                ],
-                [
-                  "API Gateway",
-                  "Kong / Nginx",
-                  ["Load Balancer", "Rate Limiting"],
-                  "text-emerald-300 border-emerald-400/20 bg-emerald-400/10",
-                ],
-                [
-                  "Microservices",
-                  "Spring Boot / Node",
-                  ["재고 서비스", "온도 서비스", "알림 서비스"],
-                  "text-violet-300 border-violet-400/20 bg-violet-400/10",
-                ],
-                [
-                  "Data Layer",
-                  "PostgreSQL / Redis",
-                  ["Primary DB", "Cache / Queue"],
-                  "text-yellow-300 border-yellow-400/20 bg-yellow-400/10",
-                ],
-              ].map(([title, badge, items, theme]) => (
+            {/* Mobile Marquee */}
+            <div className="flex sm:hidden overflow-hidden -mx-5 py-2">
+              <div className="flex w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
+                {[...systemLayers, ...systemLayers].map(([title, badge, items, theme], idx) => (
+                  <div
+                    key={`${title as string}-${idx}`}
+                    className={`w-[260px] shrink-0 mx-2 rounded-2xl border p-4 ${theme as string}`}
+                  >
+                    <div className="mb-3 flex items-center justify-between text-sm font-bold">
+                      <span>{title as string}</span>
+                      <span className="rounded-full bg-white/10 px-2 py-1 text-[11px]">
+                        {badge as string}
+                      </span>
+                    </div>
+                    <div className="grid gap-2 grid-cols-2">
+                      {(items as string[]).map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-lg bg-slate-950/35 px-4 py-2 text-center text-xs font-semibold text-white whitespace-nowrap"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden sm:block">
+              {systemLayers.map(([title, badge, items, theme]) => (
                 <div
                   key={title as string}
-                  className={`w-[260px] sm:w-auto shrink-0 snap-center sm:mb-4 rounded-2xl border p-4 ${theme as string}`}
+                  className={`mb-4 rounded-2xl border p-4 ${theme as string}`}
                 >
                   <div className="mb-3 flex items-center justify-between text-sm font-bold">
-                    <span>{title}</span>
+                    <span>{title as string}</span>
                     <span className="rounded-full bg-white/10 px-2 py-1 text-[11px]">
-                      {badge}
+                      {badge as string}
                     </span>
                   </div>
-                  <div className="grid gap-2 sm:grid-cols-2">
+                  <div className="grid gap-2 grid-cols-2">
                     {(items as string[]).map((item) => (
                       <span
                         key={item}
@@ -275,50 +334,56 @@ export default function ArchitecturePage() {
                 </span>
               ))}
             </div>
-            <div className="mt-7 sm:mt-9 flex sm:grid gap-4 sm:gap-5 sm:grid-cols-2 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
-              {[
-                [
-                  "레이어드 아키텍처",
-                  "Client → API → Service → DB 명확한 분리",
-                  Layers,
-                  "text-sky-500 bg-sky-50",
-                ],
-                [
-                  "MSA 독립 배포",
-                  "서비스별 독립 배포 및 장애 격리",
-                  Activity,
-                  "text-emerald-500 bg-emerald-50",
-                ],
-                [
-                  "무중단 운영",
-                  "롤링 배포·블루그린 전략 적용",
-                  ShieldCheck,
-                  "text-violet-500 bg-violet-50",
-                ],
-                [
-                  "Auto Scaling",
-                  "트래픽 급증 시 자동 스케일아웃",
-                  TrendingUp,
-                  "text-amber-500 bg-amber-50",
-                ],
-              ].map(([title, desc, Icon, color]) => (
-                <div
-                  key={title as string}
-                  className="w-[260px] sm:w-auto shrink-0 snap-center rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"
-                >
-                  <span
-                    className={`grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-2xl ${color as string}`}
+            {/* Mobile Marquee */}
+            <div className="mt-7 flex sm:hidden overflow-hidden -mx-5 py-2">
+              <div className="flex w-max animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused]">
+                {[...systemFeatures, ...systemFeatures].map(([title, desc, Icon, color], idx) => {
+                  const IconComp = Icon as React.ElementType;
+                  return (
+                    <div
+                      key={`${title as string}-${idx}`}
+                      className="w-[260px] shrink-0 mx-2 rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                    >
+                      <span
+                        className={`grid h-10 w-10 place-items-center rounded-2xl ${color as string}`}
+                      >
+                        <IconComp className="h-5 w-5" />
+                      </span>
+                      <h3 className="mt-4 text-base font-extrabold text-sky-950">
+                        {title as string}
+                      </h3>
+                      <p className="mt-1.5 text-xs text-slate-500">
+                        {desc as string}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden sm:grid mt-9 gap-5 grid-cols-2">
+              {systemFeatures.map(([title, desc, Icon, color]) => {
+                const IconComp = Icon as React.ElementType;
+                return (
+                  <div
+                    key={title as string}
+                    className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
                   >
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </span>
-                  <h3 className="mt-4 sm:mt-5 text-base sm:text-lg font-extrabold text-sky-950">
-                    {title as string}
-                  </h3>
-                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-slate-500">
-                    {desc as string}
-                  </p>
-                </div>
-              ))}
+                    <span
+                      className={`grid h-12 w-12 place-items-center rounded-2xl ${color as string}`}
+                    >
+                      <IconComp className="h-6 w-6" />
+                    </span>
+                    <h3 className="mt-5 text-lg font-extrabold text-sky-950">
+                      {title as string}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-500">
+                      {desc as string}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </Reveal>
         </div>
