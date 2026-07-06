@@ -196,54 +196,56 @@ export default function ArchitecturePage() {
                 ● LIVE
               </span>
             </div>
-            {[
-              [
-                "Client Layer",
-                "React / Next.js",
-                ["Web Dashboard", "Mobile App"],
-                "text-sky-300 border-sky-400/20 bg-sky-400/10",
-              ],
-              [
-                "API Gateway",
-                "Kong / Nginx",
-                ["Load Balancer", "Rate Limiting"],
-                "text-emerald-300 border-emerald-400/20 bg-emerald-400/10",
-              ],
-              [
-                "Microservices",
-                "Spring Boot / Node",
-                ["재고 서비스", "온도 서비스", "알림 서비스"],
-                "text-violet-300 border-violet-400/20 bg-violet-400/10",
-              ],
-              [
-                "Data Layer",
-                "PostgreSQL / Redis",
-                ["Primary DB", "Cache / Queue"],
-                "text-yellow-300 border-yellow-400/20 bg-yellow-400/10",
-              ],
-            ].map(([title, badge, items, theme]) => (
-              <div
-                key={title as string}
-                className={`mb-4 rounded-2xl border p-4 ${theme as string}`}
-              >
-                <div className="mb-3 flex items-center justify-between text-sm font-bold">
-                  <span>{title}</span>
-                  <span className="rounded-full bg-white/10 px-2 py-1 text-[11px]">
-                    {badge}
-                  </span>
-                </div>
-                <div className="grid gap-2 sm:grid-cols-2">
-                  {(items as string[]).map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-lg bg-slate-950/35 px-4 py-2 text-center text-xs font-semibold text-white"
-                    >
-                      {item}
+            <div className="flex sm:block overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-0 pb-2 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
+              {[
+                [
+                  "Client Layer",
+                  "React / Next.js",
+                  ["Web Dashboard", "Mobile App"],
+                  "text-sky-300 border-sky-400/20 bg-sky-400/10",
+                ],
+                [
+                  "API Gateway",
+                  "Kong / Nginx",
+                  ["Load Balancer", "Rate Limiting"],
+                  "text-emerald-300 border-emerald-400/20 bg-emerald-400/10",
+                ],
+                [
+                  "Microservices",
+                  "Spring Boot / Node",
+                  ["재고 서비스", "온도 서비스", "알림 서비스"],
+                  "text-violet-300 border-violet-400/20 bg-violet-400/10",
+                ],
+                [
+                  "Data Layer",
+                  "PostgreSQL / Redis",
+                  ["Primary DB", "Cache / Queue"],
+                  "text-yellow-300 border-yellow-400/20 bg-yellow-400/10",
+                ],
+              ].map(([title, badge, items, theme]) => (
+                <div
+                  key={title as string}
+                  className={`w-[85%] sm:w-auto shrink-0 snap-center sm:mb-4 rounded-2xl border p-4 ${theme as string}`}
+                >
+                  <div className="mb-3 flex items-center justify-between text-sm font-bold">
+                    <span>{title}</span>
+                    <span className="rounded-full bg-white/10 px-2 py-1 text-[11px]">
+                      {badge}
                     </span>
-                  ))}
+                  </div>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {(items as string[]).map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-lg bg-slate-950/35 px-4 py-2 text-center text-xs font-semibold text-white"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </Reveal>
 
           <Reveal delay={120}>
@@ -273,7 +275,7 @@ export default function ArchitecturePage() {
                 </span>
               ))}
             </div>
-            <div className="mt-7 sm:mt-9 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2">
+            <div className="mt-7 sm:mt-9 flex sm:grid gap-4 sm:gap-5 sm:grid-cols-2 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
               {[
                 [
                   "레이어드 아키텍처",
@@ -302,7 +304,7 @@ export default function ArchitecturePage() {
               ].map(([title, desc, Icon, color]) => (
                 <div
                   key={title as string}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"
+                  className="w-[85%] sm:w-auto shrink-0 snap-center rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"
                 >
                   <span
                     className={`grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-2xl ${color as string}`}
