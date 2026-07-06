@@ -20,7 +20,7 @@ export const ShipmentCountdownSection = (): JSX.Element => {
       id="expiry"
       ref={ref}
       aria-labelledby="shipment-countdown-title"
-      className="relative flex flex-col lg:flex-row items-center justify-center gap-15 bg-[#f0f7ff]
+      className="relative flex flex-col lg:flex-row items-center justify-center gap-10 sm:gap-15 bg-[#f0f7ff]
                   px-4 sm:px-6 md:px-8 lg:px-10
                   py-8 sm:py-12 md:py-16 lg:py-20"
     >
@@ -107,9 +107,9 @@ export const ShipmentCountdownSection = (): JSX.Element => {
       </div>
 
       <Reveal variant="zoom" delay={620} className="w-full lg:w-[600px]">
-        <aside className="flex w-full flex-col rounded-3xl bg-white p-6 shadow">
+        <aside className="flex w-full flex-col rounded-3xl bg-white p-4 sm:p-6 shadow">
           <div
-            className="flex w-full flex-col gap-4 rounded-2xl bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e] p-6 sm:p-7"
+            className="flex w-full flex-col gap-4 rounded-2xl bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e] p-4 sm:p-7"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-semibold text-sky-300">
@@ -125,41 +125,41 @@ export const ShipmentCountdownSection = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 sm:gap-3">
               {alertItems.map((item) => (
                 <div
                   key={`${item.name}-${item.day}`}
-                  className={`flex items-center justify-between min-h-[60px] rounded-[12px] border px-6 py-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${item.rowBgClass} ${item.rowBorderClass}`}
+                  className={`flex items-center justify-between min-h-[60px] rounded-[12px] border px-3 sm:px-6 py-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${item.rowBgClass} ${item.rowBorderClass}`}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <div
-                      className={`flex items-center justify-center rounded-lg ${item.iconBgClass} p-2`}
+                      className={`flex items-center justify-center rounded-lg ${item.iconBgClass} p-1.5 sm:p-2`}
                     >
                       <img
                         src={item.iconSrc}
                         alt={item.name}
-                        className="w-auto h-auto max-w-[24px] max-h-[24px] object-contain"
+                        className="w-auto h-auto max-w-[20px] sm:max-w-[24px] max-h-[20px] sm:max-h-[24px] object-contain"
                       />
                     </div>
 
                     <p
-                      className={`text-[14px] font-medium ${item.productTextClass}`}
+                      className={`text-[12px] sm:text-[14px] font-medium ${item.productTextClass}`}
                     >
                       {item.name}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <p className={`text-sm font-bold ${item.dayTextClass}`}>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <p className={`text-xs sm:text-sm font-bold ${item.dayTextClass}`}>
                       {item.day}
                     </p>
 
                     {item.status && (
                       <div
-                        className={`inline-flex items-center rounded-lg px-3 py-[4px] ${item.statusBgClass}`}
+                        className={`inline-flex items-center rounded-lg px-2 sm:px-3 py-[3px] sm:py-[4px] ${item.statusBgClass}`}
                       >
                         <span
-                          className={`text-[11px] font-semibold ${item.statusTextColor}`}
+                          className={`text-[10px] sm:text-[11px] font-semibold ${item.statusTextColor}`}
                         >
                           {item.status}
                         </span>
