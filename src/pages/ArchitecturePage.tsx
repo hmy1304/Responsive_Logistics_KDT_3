@@ -1,3 +1,4 @@
+import React, { useEffect, useRef, useState } from "react";
 import {
   Activity,
   BarChart,
@@ -12,6 +13,58 @@ import {
 } from "../components/icons";
 import Reveal from "../components/Reveal";
 import PageTabs from "../components/common/PageTabs";
+
+function AutoScrollCarousel({ children, speed = 1, className = "" }: { children: React.ReactNode, speed?: number, className?: string }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const exactScroll = useRef(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || isPaused) return;
+
+    let animationFrameId: number;
+
+    const scroll = () => {
+      exactScroll.current += speed;
+      el.scrollLeft = Math.floor(exactScroll.current);
+      
+      if (el.scrollLeft >= el.scrollWidth / 2) {
+        exactScroll.current -= el.scrollWidth / 2;
+        el.scrollLeft = Math.floor(exactScroll.current);
+      } else if (el.scrollLeft <= 0 && speed < 0) {
+        exactScroll.current += el.scrollWidth / 2;
+        el.scrollLeft = Math.floor(exactScroll.current);
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isPaused, speed]);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      exactScroll.current = scrollRef.current.scrollLeft;
+    }
+  };
+
+  return (
+    <div
+      ref={scrollRef}
+      onScroll={handleScroll}
+      className={`flex overflow-x-auto [&::-webkit-scrollbar]:hidden ${className}`}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
+      <div className="flex w-max">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 const tabs = [
   { id: "system", label: "시스템 구조" },
@@ -250,9 +303,9 @@ export default function ArchitecturePage() {
                 ● LIVE
               </span>
             </div>
-            {/* Mobile Marquee */}
-            <div className="flex sm:hidden overflow-hidden -mx-5 py-2">
-              <div className="flex w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+            {/* Mobile AutoScroll */}
+            <div className="sm:hidden">
+              <AutoScrollCarousel speed={0.8} className="-mx-5 px-5 py-2">
                 {[...systemLayers, ...systemLayers].map(([title, badge, items, theme], idx) => (
                   <div
                     key={`${title as string}-${idx}`}
@@ -276,7 +329,7 @@ export default function ArchitecturePage() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </AutoScrollCarousel>
             </div>
 
             {/* Desktop Layout */}
@@ -334,9 +387,9 @@ export default function ArchitecturePage() {
                 </span>
               ))}
             </div>
-            {/* Mobile Marquee */}
-            <div className="mt-7 flex sm:hidden overflow-hidden -mx-5 py-2">
-              <div className="flex w-max animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+            {/* Mobile AutoScroll */}
+            <div className="mt-7 sm:hidden">
+              <AutoScrollCarousel speed={0.6} className="-mx-5 px-5 py-2">
                 {[...systemFeatures, ...systemFeatures].map(([title, desc, Icon, color], idx) => {
                   const IconComp = Icon as React.ElementType;
                   return (
@@ -358,7 +411,7 @@ export default function ArchitecturePage() {
                     </div>
                   );
                 })}
-              </div>
+              </AutoScrollCarousel>
             </div>
 
             {/* Desktop Layout */}
