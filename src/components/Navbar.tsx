@@ -85,12 +85,12 @@ export default function Navbar() {
           >
             데모 보기
           </a>
-          <Link
-            to="/support"
+          <a
+            href="https://responsive-logistics-kdt-3-demo.vercel.app/login"
             className="rounded-[10px] bg-gradient-to-br from-sky-500 to-sky-700 px-4 py-2 text-[13px] font-semibold text-white shadow-sm shadow-sky-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/20 hover:brightness-110 lg:px-7 lg:py-2.5 lg:text-[15px]"
           >
             로그인
-          </Link>
+          </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
