@@ -145,6 +145,7 @@ export default function SupportPage() {
   const [q, setQ] = useState('')
   const [searchInput, setSearchInput] = useState('')
   const [page, setPage] = useState(1)
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
 
   const params = useMemo(
     () => ({ board, category, q, page, pageSize: PAGE_SIZE }),
@@ -191,13 +192,13 @@ export default function SupportPage() {
             </div>
 
             {/* filter + search + write */}
-            <div className="flex flex-wrap items-center gap-2.5">
+            <div className="relative flex w-full items-center gap-2.5 sm:w-auto">
               {/* category dropdown */}
-              <div className="relative">
+              <div className="relative flex-1 sm:flex-none">
                 <select
                   value={category ?? ''}
                   onChange={(e) => resetTo({ category: (e.target.value || undefined) as PostCategory | undefined })}
-                  className="h-11 appearance-none rounded-xl border border-slate-200 bg-white pl-10 pr-9 text-[14px] font-medium text-slate-600 outline-none transition-colors hover:border-sky-300 focus:border-sky-400"
+                  className="h-11 w-full appearance-none rounded-xl border border-slate-200 bg-white pl-10 pr-9 text-[14px] font-medium text-slate-600 outline-none transition-colors hover:border-sky-300 focus:border-sky-400"
                 >
                   <option value="">분류</option>
                   {CATEGORIES.map((c) => (
@@ -210,13 +211,13 @@ export default function SupportPage() {
                 <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               </div>
 
-              {/* keyword search */}
+              {/* Desktop keyword search */}
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
                   resetTo({ q: searchInput })
                 }}
-                className="relative"
+                className="relative hidden sm:block"
               >
                 <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                 <input
@@ -227,14 +228,56 @@ export default function SupportPage() {
                 />
               </form>
 
+              {/* Mobile search toggle */}
+              <button
+                type="button"
+                onClick={() => setIsMobileSearchOpen(true)}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-colors hover:bg-slate-50 sm:hidden"
+              >
+                <Search className="h-4 w-4" />
+              </button>
+
               {/* write button */}
               <Link
                 to="/support/new"
-                className="inline-flex h-11 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-sky-700 px-5 text-[14px] font-semibold text-white shadow-md shadow-sky-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
+                className="inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-sky-700 px-3.5 text-[14px] font-semibold text-white shadow-md shadow-sky-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 sm:px-5"
               >
                 <Pencil className="h-4 w-4" />
-                문의 작성
+                <span className="hidden sm:inline">문의 작성</span>
               </Link>
+
+              {/* Mobile Search Overlay */}
+              <div
+                className={`absolute inset-0 z-10 flex items-center gap-2 bg-slate-50 sm:hidden transition-all duration-300 ${
+                  isMobileSearchOpen ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-4 opacity-0"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setIsMobileSearchOpen(false)}
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 shadow-sm"
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    resetTo({ q: searchInput })
+                    setIsMobileSearchOpen(false)
+                  }}
+                  className="relative flex-1"
+                >
+                  <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-sky-500" />
+                  <input
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    placeholder="검색어를 입력하세요..."
+                    className="h-11 w-full rounded-xl border border-sky-300 bg-white pl-10 pr-4 text-[14px] text-slate-700 outline-none ring-2 ring-sky-100 placeholder:text-slate-400"
+                  />
+                </form>
+              </div>
             </div>
           </div>
 
