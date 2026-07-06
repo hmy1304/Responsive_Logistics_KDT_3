@@ -44,7 +44,7 @@ function SupportHero({ onSearch }: { onSearch: (q: string) => void }) {
           </p>
         </Reveal>
 
-        <Reveal delay={260} className="mt-9 w-full">
+        <Reveal delay={260} className="mt-9 hidden w-full sm:block">
           <form
             onSubmit={(e) => {
               e.preventDefault()
@@ -210,23 +210,6 @@ export default function SupportPage() {
                 <SlidersHorizontal className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                 <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               </div>
-
-              {/* Desktop keyword search */}
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  resetTo({ q: searchInput })
-                }}
-                className="relative hidden sm:block"
-              >
-                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                <input
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  placeholder="제목 또는 내용 검색"
-                  className="h-11 w-[220px] max-w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-[14px] text-slate-700 outline-none transition-colors placeholder:text-slate-400 hover:border-sky-300 focus:border-sky-400"
-                />
-              </form>
 
               {/* Mobile search toggle */}
               <button
