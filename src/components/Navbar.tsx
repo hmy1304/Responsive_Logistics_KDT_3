@@ -36,18 +36,18 @@ export default function Navbar() {
       }`}
     >
       <div
-        className={`mx-auto flex max-w-[1600px] items-center justify-between px-6 transition-all duration-500 sm:px-8 lg:px-10 ${
-          scrolled ? 'h-[68px]' : 'h-[88px]'
+        className={`mx-auto flex max-w-[1600px] items-center justify-between px-4 transition-all duration-500 sm:px-8 lg:px-10 ${
+          scrolled ? 'h-14 lg:h-[68px]' : 'h-16 lg:h-[88px]'
         }`}
       >
         {/* Logo */}
-        <Link to="/" className="group flex items-center gap-3.5" aria-label="Fresh Chain WMS 홈">
-          <span className="grid h-12 w-12 place-items-center rounded-[13px] bg-gradient-to-br from-sky-500 to-sky-700 text-white shadow-sm shadow-sky-900/10 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-[18deg]">
-            <Snowflake className="h-6 w-6" />
+        <Link to="/" className="group flex items-center gap-2.5 lg:gap-3.5" aria-label="Fresh Chain WMS 홈">
+          <span className="grid h-9 w-9 place-items-center rounded-[11px] bg-gradient-to-br from-sky-500 to-sky-700 text-white shadow-sm shadow-sky-900/10 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-[18deg] lg:h-12 lg:w-12 lg:rounded-[13px]">
+            <Snowflake className="h-5 w-5 lg:h-6 lg:w-6" />
           </span>
           <span className="flex flex-col leading-none">
-            <strong className="text-[20px] font-extrabold tracking-tight text-sky-900">Fresh Chain</strong>
-            <small className="text-[13px] font-bold tracking-[0.18em] text-sky-500">WMS</small>
+            <strong className="text-[17px] font-extrabold tracking-tight text-sky-900 lg:text-[20px]">Fresh Chain</strong>
+            <small className="text-[11px] font-bold tracking-[0.18em] text-sky-500 lg:text-[13px]">WMS</small>
           </span>
         </Link>
 
@@ -78,16 +78,16 @@ export default function Navbar() {
         </nav>
 
         {/* Right actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 lg:gap-3">
           <a
             href="https://responsive-logistics-kdt-3-demo.vercel.app/"
-            className="hidden rounded-[10px] border border-slate-200 px-6 py-2.5 text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 sm:block"
+            className="hidden rounded-[10px] border border-slate-200 px-4 py-2 text-[13px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 sm:block lg:px-6 lg:py-2.5 lg:text-[15px]"
           >
             데모 보기
           </a>
           <Link
             to="/support"
-            className="rounded-[10px] bg-gradient-to-br from-sky-500 to-sky-700 px-7 py-2.5 text-[15px] font-semibold text-white shadow-sm shadow-sky-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/20 hover:brightness-110"
+            className="rounded-[10px] bg-gradient-to-br from-sky-500 to-sky-700 px-4 py-2 text-[13px] font-semibold text-white shadow-sm shadow-sky-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/20 hover:brightness-110 lg:px-7 lg:py-2.5 lg:text-[15px]"
           >
             로그인
           </Link>
@@ -95,9 +95,9 @@ export default function Navbar() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label="메뉴 열기"
-            className="grid h-10 w-10 place-items-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
+            className="grid h-9 w-9 place-items-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-5 w-5 lg:h-6 lg:w-6" />
           </button>
         </div>
       </div>

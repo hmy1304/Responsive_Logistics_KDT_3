@@ -16,7 +16,7 @@ function SupportHero({ onSearch }: { onSearch: (q: string) => void }) {
   const [value, setValue] = useState('')
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-500 via-sky-600 to-sky-800 px-6 py-24 sm:px-8 lg:px-10 lg:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-500 via-sky-600 to-sky-800 px-5 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-28">
       {/* ambient floating glyphs */}
       <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true">
         <Headphones className="absolute left-[8%] top-[28%] h-20 w-20 -rotate-12 text-white/15" />
@@ -76,25 +76,50 @@ function SupportHero({ onSearch }: { onSearch: (q: string) => void }) {
 
 /* ── 테이블 한 행 ─────────────────────────────────────────────── */
 function PostRow({ post }: { post: Post }) {
+  const dateStr = post.createdAt.replace(/-/g, '.')
   return (
     <Link
       to={`/support/${post.id}`}
-      className={`group grid grid-cols-[64px_88px_1fr_110px_84px] items-center px-5 py-4 transition-colors hover:bg-sky-50/70 ${
+      className={`group block px-5 py-3.5 transition-colors hover:bg-sky-50/70 sm:grid sm:grid-cols-[64px_88px_1fr_110px_84px] sm:items-center sm:py-4 ${
         post.pinned ? 'bg-sky-50/50' : ''
       }`}
     >
-      {/* 번호 */}
-      <span className="text-center text-[14px] font-medium text-slate-400">
+      {/* ── Mobile: 분류 + 제목 위, 메타 아래 ── */}
+      <div className="flex flex-col gap-1.5 sm:hidden">
+        <div className="flex items-center gap-2">
+          <span
+            className={`shrink-0 rounded-md px-2 py-0.5 text-[11px] font-semibold ${CATEGORY_STYLES[post.category]}`}
+          >
+            {post.category}
+          </span>
+          {post.isNew && (
+            <span className="shrink-0 rounded bg-green-500 px-1.5 py-0.5 text-[10px] font-bold leading-none text-white">
+              NEW
+            </span>
+          )}
+          <span className="truncate text-[14px] font-semibold text-slate-800 group-hover:text-sky-700">
+            {post.title}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 text-[12px] text-slate-400">
+          <span className={post.pinned ? 'font-bold text-sky-600' : ''}>{post.pinned ? '공지' : `#${post.id}`}</span>
+          <span className="h-2.5 w-px bg-slate-200" />
+          <span className="tabular-nums">{dateStr}</span>
+          <span className="h-2.5 w-px bg-slate-200" />
+          <span className="tabular-nums">조회 {post.views.toLocaleString()}</span>
+        </div>
+      </div>
+
+      {/* ── Desktop: 5열 테이블 ── */}
+      <span className="hidden text-center text-[14px] font-medium text-slate-400 sm:block">
         {post.pinned ? <span className="font-bold text-sky-600">공지</span> : post.id}
       </span>
-      {/* 분류 */}
-      <span className="flex justify-center">
+      <span className="hidden justify-center sm:flex">
         <span className={`rounded-md px-2.5 py-1 text-[12px] font-semibold ${CATEGORY_STYLES[post.category]}`}>
           {post.category}
         </span>
       </span>
-      {/* 제목 */}
-      <span className="flex min-w-0 items-center gap-2 pr-4">
+      <span className="hidden min-w-0 items-center gap-2 pr-4 sm:flex">
         {post.isNew && (
           <span className="shrink-0 rounded bg-green-500 px-1.5 py-0.5 text-[10px] font-bold leading-none text-white">
             NEW
@@ -104,10 +129,10 @@ function PostRow({ post }: { post: Post }) {
           {post.title}
         </span>
       </span>
-      {/* 작성일 */}
-      <span className="text-right text-[13px] tabular-nums text-slate-400">{post.createdAt.replace(/-/g, '.')}</span>
-      {/* 조회수 */}
-      <span className="text-right text-[13px] tabular-nums text-slate-400">{post.views.toLocaleString()}</span>
+      <span className="hidden text-right text-[13px] tabular-nums text-slate-400 sm:block">{dateStr}</span>
+      <span className="hidden text-right text-[13px] tabular-nums text-slate-400 sm:block">
+        {post.views.toLocaleString()}
+      </span>
     </Link>
   )
 }
@@ -143,7 +168,7 @@ export default function SupportPage() {
         }}
       />
 
-      <section className="bg-slate-50 px-6 py-14 sm:px-8 lg:px-10 lg:py-20">
+      <section className="bg-slate-50 px-5 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="mx-auto max-w-[1280px]">
           {/* Toolbar */}
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -234,7 +259,7 @@ export default function SupportPage() {
           {/* Table */}
           <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             {/* header */}
-            <div className="grid grid-cols-[64px_88px_1fr_110px_84px] items-center border-b border-slate-200 bg-slate-50/80 px-5 py-3.5 text-[13px] font-semibold text-slate-500">
+            <div className="hidden grid-cols-[64px_88px_1fr_110px_84px] items-center border-b border-slate-200 bg-slate-50/80 px-5 py-3.5 text-[13px] font-semibold text-slate-500 sm:grid">
               <span className="text-center">번호</span>
               <span className="text-center">분류</span>
               <span>제목</span>
@@ -246,12 +271,15 @@ export default function SupportPage() {
             <div className={`divide-y divide-slate-100 transition-opacity ${isPlaceholderData ? 'opacity-50' : ''}`}>
               {isLoading ? (
                 Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="grid grid-cols-[64px_88px_1fr_110px_84px] items-center px-5 py-4">
-                    <div className="mx-auto h-3 w-6 rounded bg-slate-100" />
-                    <div className="mx-auto h-5 w-12 rounded bg-slate-100" />
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 px-5 py-4 sm:grid sm:grid-cols-[64px_88px_1fr_110px_84px] sm:gap-0"
+                  >
+                    <div className="mx-auto hidden h-3 w-6 rounded bg-slate-100 sm:block" />
+                    <div className="h-5 w-12 shrink-0 rounded bg-slate-100 sm:mx-auto" />
                     <div className="h-3.5 w-2/3 rounded bg-slate-100" />
-                    <div className="ml-auto h-3 w-16 rounded bg-slate-100" />
-                    <div className="ml-auto h-3 w-10 rounded bg-slate-100" />
+                    <div className="ml-auto hidden h-3 w-16 rounded bg-slate-100 sm:block" />
+                    <div className="ml-auto hidden h-3 w-10 rounded bg-slate-100 sm:block" />
                   </div>
                 ))
               ) : isError ? (

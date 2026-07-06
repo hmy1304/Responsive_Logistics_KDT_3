@@ -73,7 +73,7 @@ function AboutHero() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-sky-950/85 via-sky-950/70 to-sky-950/90" />
-      <div className="relative mx-auto max-w-[1600px] px-6 py-24 text-center sm:px-8 lg:px-10 lg:py-28">
+      <div className="relative mx-auto max-w-[1600px] px-5 py-14 text-center sm:px-8 sm:py-20 lg:px-10 lg:py-28">
         <Reveal>
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-5 py-1.5 text-[13px] font-bold tracking-[0.18em] text-sky-300 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
@@ -124,7 +124,7 @@ function Stat({
 function CompanySection() {
   const { ref, inView } = useInView<HTMLDivElement>()
   return (
-    <section id="company" className="scroll-mt-[150px] bg-white px-6 py-24 sm:px-8 lg:px-10">
+    <section id="company" className="scroll-mt-[150px] bg-white px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader label="COMPANY" title="기업 소개" />
 
@@ -261,7 +261,7 @@ const VALUES: Value[] = [
 
 function ValuesSection() {
   return (
-    <section id="values" className="scroll-mt-[150px] bg-slate-50 px-6 py-24 sm:px-8 lg:px-10">
+    <section id="values" className="scroll-mt-[150px] bg-slate-50 px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader
           label="CORE VALUES"
@@ -298,7 +298,7 @@ function ValuesSection() {
 /* ── CEO 인사말 ────────────────────────────────────────────── */
 function CeoSection() {
   return (
-    <section id="ceo" className="scroll-mt-[150px] bg-white px-6 py-24 sm:px-8 lg:px-10">
+    <section id="ceo" className="scroll-mt-[150px] bg-white px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader label="CEO MESSAGE" title="대표이사 인사말" />
 
@@ -404,7 +404,7 @@ const HISTORY: Milestone[] = [
 
 function HistorySection() {
   return (
-    <section id="history" className="scroll-mt-[150px] bg-slate-50 px-6 py-24 sm:px-8 lg:px-10">
+    <section id="history" className="scroll-mt-[150px] bg-slate-50 px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto grid max-w-[1200px] gap-14 lg:grid-cols-[minmax(0,360px)_1fr]">
         <div>
           <Reveal>
@@ -511,7 +511,7 @@ function MapCard() {
 
 function LocationSection() {
   return (
-    <section id="location" className="scroll-mt-[150px] bg-white px-6 py-24 sm:px-8 lg:px-10">
+    <section id="location" className="scroll-mt-[150px] bg-white px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader label="CONTACT & LOCATION" title="찾아오시는 길 & 문의" />
 

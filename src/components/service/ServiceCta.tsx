@@ -22,7 +22,7 @@ export default function ServiceCta() {
         <span className="absolute right-[10%] top-[62%] h-1.5 w-1.5 animate-float rounded-full bg-sky-400/30" />
       </div>
 
-      <div className="relative mx-auto max-w-2xl px-6 py-20 text-center sm:px-8 sm:py-24 lg:px-10">
+      <div className="relative mx-auto max-w-2xl px-5 py-12 text-center sm:px-8 sm:py-16 lg:px-10 lg:py-24">
         <Reveal>
           <span className="mx-auto grid h-[72px] w-[72px] place-items-center rounded-[20px] bg-sky-400 text-white shadow-2xl shadow-sky-400/40 animate-pulse-ring">
             <Headphones className="h-9 w-9" />

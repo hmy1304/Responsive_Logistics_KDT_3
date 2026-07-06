@@ -154,6 +154,14 @@
   .text-shadow-hero {
     text-shadow: 0 2px 24px rgba(2, 8, 23, 0.45);
   }
+  /* hide scrollbar on horizontal scroll strips (mobile tab bars, tables) */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

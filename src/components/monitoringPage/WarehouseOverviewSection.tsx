@@ -116,10 +116,10 @@ export const WarehouseOverviewSection = (): JSX.Element => {
         <Reveal variant="zoom" delay={0} className="w-full lg:w-[600px]">
           <HoverTilt className="rounded-2xl">
             <article
-              className="w-full p-6 rounded-2xl shadow min-w-0
+              className="w-full p-3 sm:p-5 lg:p-6 rounded-2xl shadow min-w-0
                           animate-float duration-500"
             >
-              <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-br from-sky-950 to-sky-800 p-6 sm:p-7">
+              <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-br from-sky-950 to-sky-800 p-4 sm:p-6 lg:p-7">
                 <div
                   className="flex flex-col justify-center
                               gap-3 sm:gap-4 md:gap-5 lg:gap-6
@@ -152,22 +152,22 @@ export const WarehouseOverviewSection = (): JSX.Element => {
                         >
                           <div className="flex justify-between items-center w-full">
                             <div
-                              className={`flex items-center justify-center w-8 h-8 rounded-md ${card.iconBgColor} flex-shrink-0`}
+                              className={`flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-md ${card.iconBgColor} flex-shrink-0`}
                             >
                               <img
                                 src={card.iconSrc}
                                 alt={card.title}
-                                className="w-5 h-5"
+                                className="w-4 h-4 sm:w-5 sm:h-5"
                               />
                             </div>
 
                             {card.badgeType === "냉장" ? (
-                              <span className="flex items-center px-2 py-[2px] h-[22px] rounded-full bg-blue-100 text-blue-600 text-[11px] font-medium">
+                              <span className="flex items-center whitespace-nowrap px-1.5 sm:px-2 py-[2px] h-[22px] rounded-full bg-blue-100 text-blue-600 text-[10px] sm:text-[11px] font-medium">
                                 {card.badgeType}
                               </span>
                             ) : (
                               <span
-                                className={`flex items-center px-2 py-[1px] h-[22px] rounded-full text-[11px] font-medium ${card.badgeType === "정상" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}
+                                className={`flex items-center whitespace-nowrap px-1.5 sm:px-2 py-[1px] h-[22px] rounded-full text-[10px] sm:text-[11px] font-medium ${card.badgeType === "정상" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}
                               >
                                 <span
                                   className={`w-[7px] h-[7px] rounded-full mr-1 ${card.badgeType === "정상" ? "bg-green-600" : "bg-red-600"}`}
@@ -232,7 +232,7 @@ export const WarehouseOverviewSection = (): JSX.Element => {
 
             <h1
               id="warehouse-overview-heading"
-              className="font-extrabold text-sky-900 text-left text-[38px] leading-tight"
+              className="font-extrabold text-sky-900 text-left text-[26px] sm:text-[32px] lg:text-[38px] leading-tight"
             >
               <Reveal delay={120} as="span" className="block">
                 전체 창고 현황을

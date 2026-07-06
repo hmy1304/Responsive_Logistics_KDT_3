@@ -37,8 +37,8 @@ function WarehouseWidget() {
   const qty = useCountUp(6210, { active: inView })
 
   return (
-    <div ref={ref} className="animate-float rounded-3xl bg-white p-6 shadow-2xl shadow-sky-900/15">
-      <div className="rounded-2xl bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e] p-7">
+    <div ref={ref} className="animate-float rounded-3xl bg-white p-3 shadow-2xl shadow-sky-900/15 sm:p-6">
+      <div className="rounded-2xl bg-gradient-to-br from-[#020d1a] via-[#03294a] to-[#0c4a6e] p-4 sm:p-7">
         {/* top bar */}
         <div className="flex items-center justify-between">
           <span className="inline-flex items-center gap-2 text-[12px] font-semibold text-green-400">
@@ -52,21 +52,21 @@ function WarehouseWidget() {
         </div>
 
         {/* temp display */}
-        <div className="mt-5 rounded-xl bg-[#0c2d44] p-6">
-          <div className="flex items-start justify-between">
+        <div className="mt-5 rounded-xl bg-[#0c2d44] p-4 sm:p-6">
+          <div className="flex items-start justify-between gap-2">
             <div>
               <span className="text-[12px] text-sky-300/80">현재 온도</span>
               <div className="mt-1 font-extrabold leading-none text-sky-400">
-                <span className="text-[48px] tabular-nums">-{temp}</span>
-                <span className="text-[20px] font-semibold">°C</span>
+                <span className="text-[40px] tabular-nums sm:text-[48px]">-{temp}</span>
+                <span className="text-[18px] font-semibold sm:text-[20px]">°C</span>
               </div>
             </div>
-            <div className="flex flex-col items-end gap-1.5">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-green-500/15 px-2.5 py-1 text-[12px] font-semibold text-green-400">
+            <div className="flex shrink-0 flex-col items-end gap-1.5">
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-green-500/15 px-2.5 py-1 text-[11px] font-semibold text-green-400 sm:text-[12px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
                 정상 범위
               </span>
-              <span className="text-[12px] text-slate-400">설정: -20 ~ -15°C</span>
+              <span className="whitespace-nowrap text-[11px] text-slate-400 sm:text-[12px]">설정: -20 ~ -15°C</span>
             </div>
           </div>
 
@@ -79,16 +79,16 @@ function WarehouseWidget() {
           </div>
 
           {/* mini stats */}
-          <div className="mt-5 grid grid-cols-3 gap-3">
+          <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
             {[
               { ic: <Thermometer className="h-4 w-4" />, v: '-18°C', l: '냉동 보관', vc: 'text-sky-400', lc: 'text-sky-300/80' },
               { ic: <Activity className="h-4 w-4" />, v: '정상', l: '온도 상태', vc: 'text-green-400', lc: 'text-green-300/80' },
               { ic: <Package className="h-4 w-4" />, v: qty, l: '보관 수량', vc: 'text-white', lc: 'text-sky-300/80' },
             ].map((s) => (
-              <div key={s.l} className="rounded-lg bg-white/5 p-3 text-center">
+              <div key={s.l} className="rounded-lg bg-white/5 p-2 text-center sm:p-3">
                 <span className={`mx-auto mb-1 flex justify-center ${s.vc}`}>{s.ic}</span>
-                <b className={`block text-[15px] font-bold tabular-nums ${s.vc}`}>{s.v}</b>
-                <span className={`text-[11px] ${s.lc}`}>{s.l}</span>
+                <b className={`block text-[14px] font-bold tabular-nums sm:text-[15px] ${s.vc}`}>{s.v}</b>
+                <span className={`block whitespace-nowrap text-[10px] sm:text-[11px] ${s.lc}`}>{s.l}</span>
               </div>
             ))}
           </div>
@@ -108,7 +108,7 @@ function WarehouseWidget() {
 
 export default function Service() {
   return (
-    <section id="service" className="bg-slate-50 px-6 py-20 sm:px-8 lg:px-10 lg:py-[80px]">
+    <section id="service" className="bg-slate-50 px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-[80px]">
       <div className="mx-auto grid max-w-[1600px] items-center gap-12 lg:grid-cols-[minmax(0,520px)_1fr] lg:gap-24">
         {/* Left: widget */}
         <Reveal variant="zoom">

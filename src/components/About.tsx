@@ -74,10 +74,10 @@ const CARDS: Card[] = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-white px-6 py-24 sm:px-8 lg:px-10 lg:py-[100px]">
+    <section id="about" className="bg-white px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-[100px]">
       <div className="mx-auto max-w-[1600px]">
         {/* Header */}
-        <div className="mx-auto mb-16 max-w-2xl text-center">
+        <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-14 lg:mb-16">
           <Reveal>
             <span className="inline-block rounded-full bg-sky-50 px-5 py-1.5 text-[14px] font-semibold text-sky-700">
               Fresh Chain WMS 소개
@@ -102,7 +102,7 @@ export default function About() {
               key={c.num}
               delay={i * 110}
               variant="zoom"
-              className={`group relative ${c.cardBg} p-10 transition-colors duration-500 hover:bg-white`}
+              className={`group relative ${c.cardBg} p-6 transition-colors duration-500 hover:bg-white sm:p-8 lg:p-10`}
             >
               {/* top accent bar */}
               <span

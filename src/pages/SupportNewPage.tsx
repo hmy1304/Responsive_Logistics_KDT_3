@@ -31,7 +31,7 @@ export default function SupportNewPage() {
     'w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-slate-700 outline-none transition-colors placeholder:text-slate-400 focus:border-sky-400'
 
   return (
-    <section className="min-h-[60vh] bg-slate-50 px-6 py-14 sm:px-8 lg:px-10 lg:py-20">
+    <section className="min-h-[60vh] bg-slate-50 px-5 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
       <div className="mx-auto max-w-[760px]">
         <Link
           to="/support"

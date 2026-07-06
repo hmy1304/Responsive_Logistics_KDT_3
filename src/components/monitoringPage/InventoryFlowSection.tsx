@@ -49,7 +49,6 @@ export const InventoryFlowSection = (): JSX.Element => {
                       <span className={card.labelClass}>{card.label}</span>
                     </div>
                     <div className={card.valueClass}>{card.value}</div>
-                    <div className={card.unitClass}>{card.unit}</div>
                   </article>
                 ))}
               </div>
@@ -68,7 +67,7 @@ export const InventoryFlowSection = (): JSX.Element => {
                   aria-valuemin={0}
                   aria-valuemax={100}
                 >
-                  <div className="w-[280px] h-2.5 bg-gradient-to-b from-green-600 to-sky-500 rounded" />
+                  <div className="w-[93.3%] h-2.5 bg-gradient-to-b from-green-600 to-sky-500 rounded" />
                 </div>
               </div>
 
@@ -131,8 +130,8 @@ export const InventoryFlowSection = (): JSX.Element => {
           </Reveal>
 
           <Reveal delay={120}>
-            <h3 className="font-extrabold text-sky-900 text-left text-base text-[38px] leading-tight">
-              입출고 흐름과 재고 소진율을
+            <h3 className="font-extrabold text-sky-900 text-left text-[24px] sm:text-[30px] lg:text-[38px] leading-tight">
+              입출고 흐름과 재고 소진율을{' '}
               <br className="hidden lg:block" />
               그래프로 확인합니다
             </h3>

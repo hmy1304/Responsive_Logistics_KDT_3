@@ -352,7 +352,7 @@ export default function Monitoring() {
   return (
     <section
       id="monitoring"
-      className="bg-white px-6 py-24 sm:px-8 lg:px-10 lg:py-[90px]"
+      className="bg-white px-5 py-12 sm:px-8 sm:py-20 lg:px-10 lg:py-[90px]"
     >
       <div className="mx-auto grid max-w-[1600px] items-center gap-14 lg:grid-cols-[minmax(0,440px)_1fr] lg:gap-16">
         {/* text */}

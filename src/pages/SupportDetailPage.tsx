@@ -10,7 +10,7 @@ export default function SupportDetailPage() {
   const { data: post, isLoading, isError } = usePost(postId)
 
   return (
-    <section className="min-h-[60vh] bg-slate-50 px-6 py-14 sm:px-8 lg:px-10 lg:py-20">
+    <section className="min-h-[60vh] bg-slate-50 px-5 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
       <div className="mx-auto max-w-[900px]">
         <Link
           to="/support"

@@ -9,10 +9,10 @@ export const summaryCards = [
   {
     title: "전체 관리 상품",
     value: "12,530",
-    valueClass: "font-extrabold text-slate-900 text-[26px]",
+    valueClass: "font-extrabold text-slate-900 text-[18px] sm:text-[22px] lg:text-[26px]",
     titleClass: "font-medium text-sky-700 text-[10px]",
     wrapperClass:
-      "flex flex-col items-start gap-2.5 p-[18px] flex-1 rounded-xl border border-[#0284c730] bg-gradient-to-br from-sky-100 to-sky-200",
+      "flex flex-col items-start gap-2.5 p-3 sm:p-4 lg:p-[18px] flex-1 rounded-xl border border-[#0284c730] bg-gradient-to-br from-sky-100 to-sky-200",
     iconSrc: sk1i,
     iconBgColor: "bg-blue-200",
     badgeType: "정상",
@@ -21,10 +21,10 @@ export const summaryCards = [
   {
     title: "냉장 보관 상품",
     value: "4,230",
-    valueClass: "font-extrabold text-sky-600 text-[26px]",
+    valueClass: "font-extrabold text-sky-600 text-[18px] sm:text-[22px] lg:text-[26px]",
     titleClass: "font-medium text-sky-700 text-[10px]",
     wrapperClass:
-      "flex flex-col items-start gap-2.5 p-[18px] flex-1 rounded-xl border border-[#0284c730] bg-gradient-to-br from-sky-100 to-sky-200 opacity-70",
+      "flex flex-col items-start gap-2.5 p-3 sm:p-4 lg:p-[18px] flex-1 rounded-xl border border-[#0284c730] bg-gradient-to-br from-sky-100 to-sky-200 opacity-70",
     iconSrc: vector,
     iconBgColor: "bg-blue-200",
     badgeType: "냉장",
@@ -33,10 +33,10 @@ export const summaryCards = [
   {
     title: "위험 상품",
     value: "54",
-    valueClass: "font-extrabold text-red-600 text-[26px]",
+    valueClass: "font-extrabold text-red-600 text-[18px] sm:text-[22px] lg:text-[26px]",
     titleClass: "font-medium text-red-500 text-[10px]",
     wrapperClass:
-      "flex flex-col items-start gap-2.5 p-[18px] flex-1 rounded-xl border border-red-200 bg-gradient-to-br from-red-50 to-red-100",
+      "flex flex-col items-start gap-2.5 p-3 sm:p-4 lg:p-[18px] flex-1 rounded-xl border border-red-200 bg-gradient-to-br from-red-50 to-red-100",
     iconSrc: image,
     iconBgColor: "bg-red-200",
     badgeType: "긴급",

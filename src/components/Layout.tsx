@@ -37,7 +37,7 @@ export default function Layout() {
 
       <Navbar />
 
-      <main className="pt-[88px]">
+      <main className="pt-16 lg:pt-[88px]">
         <Outlet />
       </main>
 

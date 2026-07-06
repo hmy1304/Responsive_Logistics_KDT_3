@@ -22,7 +22,7 @@ export default function CTA() {
         <span className="absolute right-[14%] top-[60%] h-1.5 w-1.5 animate-float rounded-full bg-sky-400/30" />
       </div>
 
-      <div className="relative mx-auto grid max-w-[1600px] items-center gap-8 px-6 py-16 sm:px-8 lg:grid-cols-2 lg:px-10 lg:py-0">
+      <div className="relative mx-auto grid max-w-[1600px] items-center gap-8 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-2 lg:px-10 lg:py-0">
         {/* illustration */}
         <Reveal variant="zoom" className="order-2 lg:order-1">
           <img

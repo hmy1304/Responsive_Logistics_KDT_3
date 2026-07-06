@@ -86,7 +86,7 @@ export default function InventorySection() {
   const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
-    <section id="inventory" className="bg-white px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+    <section id="inventory" className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1600px]">
         <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,440px)_1fr] lg:gap-20">
           {/* text */}

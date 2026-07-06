@@ -91,7 +91,7 @@ const CARDS: Card[] = [
 
 export default function ExpirySection() {
   return (
-    <section id="expiry" className="bg-sky-50/70 px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+    <section id="expiry" className="bg-sky-50/70 px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1600px]">
         <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,480px)_1fr] lg:gap-20">
           {/* text */}

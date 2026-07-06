@@ -44,7 +44,7 @@ const ITEMS: Item[] = [
 
 export default function TemperatureSection() {
   return (
-    <section id="temperature" className="bg-white px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+    <section id="temperature" className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-24">
       <div className="mx-auto grid max-w-[1600px] items-center gap-14 lg:grid-cols-[minmax(0,440px)_1fr] lg:gap-20">
         {/* text */}
         <div>
