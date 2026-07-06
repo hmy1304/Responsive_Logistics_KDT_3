@@ -252,7 +252,7 @@ export default function ArchitecturePage() {
             </div>
             {/* Mobile Marquee */}
             <div className="flex sm:hidden overflow-hidden -mx-5 py-2">
-              <div className="flex w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
+              <div className="flex w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused]">
                 {[...systemLayers, ...systemLayers].map(([title, badge, items, theme], idx) => (
                   <div
                     key={`${title as string}-${idx}`}
@@ -336,7 +336,7 @@ export default function ArchitecturePage() {
             </div>
             {/* Mobile Marquee */}
             <div className="mt-7 flex sm:hidden overflow-hidden -mx-5 py-2">
-              <div className="flex w-max animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused]">
+              <div className="flex w-max animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused]">
                 {[...systemFeatures, ...systemFeatures].map(([title, desc, Icon, color], idx) => {
                   const IconComp = Icon as React.ElementType;
                   return (
